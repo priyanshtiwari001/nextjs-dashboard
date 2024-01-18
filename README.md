@@ -1,3 +1,5 @@
+# [Next-js dashboard](https://nextjs.org/learn/dashboard-app/)
+
 ## Chapter-3 Optimizing Fonts and Images
 
 - Why optimize fonts?
@@ -33,3 +35,11 @@
   - Splitting code by routes means that pages become isolated. If a certain page throws an error, the rest of the application will still work.
 
   - Futhermore, in production, whenever <Link> components appear in the browser's viewport, Next.js automatically prefetches the code for the linked route in the background. By the time the user clicks the link, the code for the destination page will already be loaded in the background, and this is what makes the page transition near-instant!
+
+## Chapter-5 Fetching Data
+
+- Using Server Components to fetch data:
+  - By default, Next.js applications use React Server Components.
+  - Server Components support promises, providing a simpler solution for asynchronous tasks like data fetching.
+  - You can use async/await syntax without reaching out for useEffect, useState or data fetching libraries.
+  - Server Components execute on the server, you can query the database directly without an additional API layer.
