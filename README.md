@@ -122,4 +122,4 @@
     - You could also create a staggered effect by streaming page sections. But you'll need to create wrapper components.
     - Where you place your suspense boundaries will vary depending on your application. In general, it's good practice to move your data fetches down to the components that need it, and then wrap those components in Suspense. But there is nothing wrong with streaming the sections or the whole page if that's what your application needs.
 
-- Don't be afraid to experiment with Suspense and see what works best, it's a powerful API that can help you create more delightful user experiences.
+- Don't be afraid to experiment with Suspense and see what works best, it's a powerful API that can help you create more delightful user experience
