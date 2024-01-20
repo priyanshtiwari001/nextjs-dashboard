@@ -88,3 +88,38 @@
       - User-Specific Content -> It's easier to serve personalized content, such as dashboards or user profiles, and update the data based on user interaction.
       - Request Time Information -> Dynamic rendering allows you to access information that can only be known at request time, such as cookies or the URL search parameters.
       - to use dynamic rendering, import unstable_noStore from next/cache, and call it the top of your data fetching functions.
+
+## Chapter-9 Streaming
+
+- What is streaming?
+
+  - Streaming is a data transfer technique that allows you to break down a route into smaller "chunks" and progressively stream them from the server to the client as they become ready.
+  - Two ways we can do that:
+
+    - At the page level, with the loading.tsx file.
+    - For specific components, with <Suspense>
+
+  - What is loading.tsx?
+
+    - loading.tsx is a special Next.js file built on top of Suspense, it allows you to create fallback UI to show as a replacement while page content loads.
+    - Since loading.tsx is a level higher than /invoices/page.tsx and /customers/page.tsx in the file system, it's also applied to those pages.We can change this with Route Groups.
+    - what is route groups?
+      - Route groups allow you to organize files into logical groups without affecting the URL path structure. When you create a new folder using parentheses (), the name won't be included in the URL path
+
+  - With <Suspense> component
+    - Suspense allows you to defer rendering parts of your application until some condition is met (e.g. data is loaded). You can wrap your dynamic components in Suspense. Then, pass it a fallback component to show while the dynamic component loads.
+
+- Deciding where to place your Suspense boundaries
+
+  - Where you place your Suspense boundaries will depend on a few things:
+  - How you want the user to experience the page as it streams.
+  - What content you want to prioritize.
+  - If the components rely on data fetching.
+  - Take a look at your dashboard page, is there anything you would've done differently?
+
+    - You could stream the whole page like we did with loading.tsx... but that may lead to a longer loading time if one of the components has a slow data fetch.
+    - You could stream every component individually... but that may lead to UI popping into the screen as it becomes ready.
+    - You could also create a staggered effect by streaming page sections. But you'll need to create wrapper components.
+    - Where you place your suspense boundaries will vary depending on your application. In general, it's good practice to move your data fetches down to the components that need it, and then wrap those components in Suspense. But there is nothing wrong with streaming the sections or the whole page if that's what your application needs.
+
+- Don't be afraid to experiment with Suspense and see what works best, it's a powerful API that can help you create more delightful user experiences.
