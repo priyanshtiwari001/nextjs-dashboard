@@ -123,3 +123,17 @@
     - Where you place your suspense boundaries will vary depending on your application. In general, it's good practice to move your data fetches down to the components that need it, and then wrap those components in Suspense. But there is nothing wrong with streaming the sections or the whole page if that's what your application needs.
 
 - Don't be afraid to experiment with Suspense and see what works best, it's a powerful API that can help you create more delightful user experience
+
+## Chapter-10 Adding Search and Pagination
+
+- Why use URL search params?
+
+  - using URL search params, we will abe to manage the search state.
+  - There are a couple of benefits of implementing search with URL params:
+    - Bookmarkable and shareable url
+    - Server-Side Rendering and Initial Load: URL parameters can be directly consumed on the server to render the initial state, making it easier to handle server rendering.
+
+- These are the Next.js client hooks that you'll use to implement the search functionality:
+  - **useSearchParams**- Allows you to access the parameters of the current URL. For example, the search params for this URL /dashboard/invoices?page=1&query=pending would look like this: {page: '1', query: 'pending'}
+  - **usePathName** - Lets you read the current URL's pathname. For example, for the route /dashboard/invoices, usePathname would return '/dashboard/invoices'.
+  - **useRouter** - Enables navigation between routes within client components programmaticall
