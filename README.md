@@ -1,4 +1,4 @@
-# [Next-js dashboard](https://nextjs.org/learn/dashboard-app/)
+# [Next-js dashboard](https://nextjs.org/learn/dashboard-app/) short note that discuss in the chapter
 
 ## Chapter-3 Optimizing Fonts and Images
 
@@ -137,3 +137,18 @@
   - **useSearchParams**- Allows you to access the parameters of the current URL. For example, the search params for this URL /dashboard/invoices?page=1&query=pending would look like this: {page: '1', query: 'pending'}
   - **usePathName** - Lets you read the current URL's pathname. For example, for the route /dashboard/invoices, usePathname would return '/dashboard/invoices'.
   - **useRouter** - Enables navigation between routes within client components programmaticall
+
+## Chapter- 12 Mutating Data
+
+- what is Server actions?
+
+  - React Server Actions allow you to run asynchronous code directly on the server. They eliminate the need to create API endpoints to mutate your data. Instead, you write asynchronous functions that execute on the server and can be invoked from your Client or Server Components.
+
+  - security is very important for web application, as they are vunerable to various threat. This is where Server Actions come in. protect us from various type of attacks, ensuring authorized access and etc.
+
+  - Server Actions achieve this through techniques like POST requests, encrypted closures, strict input checks, error message hashing, and host restrictions, all working together to significantly enhance your app's safety.
+  - An advantage of invoking a Server Action within a Server Component is **progressive enhancement** - forms work even if JavaScript is disabled on the client.
+
+- Next.js with Server Actions
+
+  - Server Actions are also deeply integrated with Next.js caching. When a form is submitted through a Server Action, not only can you use the action to mutate data, but you can also revalidate the associated cache using APIs like revalidatePath and revalidateTag.
