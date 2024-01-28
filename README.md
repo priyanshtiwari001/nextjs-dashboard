@@ -154,8 +154,23 @@
   - Server Actions are also deeply integrated with Next.js caching. When a form is submitted through a Server Action, not only can you use the action to mutate data, but you can also revalidate the associated cache using APIs like revalidatePath and revalidateTag.
 
 - Revalidate and redirect
+
   - Next.js has a Client-side Router Cache that stores the route segments in the user's browser for a time.
   - Along with prefetching(pre-load the data in the background), this cache ensures that users can quickly navigate between routes while reducing the number of requests made to the server.
   - Since you're updating the data displayed in the invoices route,
     - you want to **clear this cache and trigger a new request to the server**. You can do this with the **revalidatePath** function from Next.js.
-    - redirect helps to redirect to the path we mentioned
+    - redirect helps to redirect to the path we mentioned.
+
+  ## Chapter- 13 Handling Error
+
+  - why we should call redirect outside of the try/catch block.
+
+    - This is because redirect works by throwing an error, which would be caught by the catch block. To avoid this, you can call redirect after try/catch. redirect would only be reachable if try is successful
+
+  - Error.tsx
+    - The error.tsx file can be used to define a UI boundary for a route segment. It serves as a catch-all for unexpected errors and allows you to display a fallback UI to your users.
+    - It accepts two props:
+      - error: This object is an instance of JavaScript's native Error object.
+      - reset: This is a function to reset the error boundary. When executed, the function will try to re-render the route segment.
+  - notFound.tsx
+    - While error.tsx is useful for catching all errors, notFound can be used when you try to fetch a resource that doesn't exist.
