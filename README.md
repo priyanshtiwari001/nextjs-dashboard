@@ -152,3 +152,10 @@
 - Next.js with Server Actions
 
   - Server Actions are also deeply integrated with Next.js caching. When a form is submitted through a Server Action, not only can you use the action to mutate data, but you can also revalidate the associated cache using APIs like revalidatePath and revalidateTag.
+
+- Revalidate and redirect
+  - Next.js has a Client-side Router Cache that stores the route segments in the user's browser for a time.
+  - Along with prefetching(pre-load the data in the background), this cache ensures that users can quickly navigate between routes while reducing the number of requests made to the server.
+  - Since you're updating the data displayed in the invoices route,
+    - you want to **clear this cache and trigger a new request to the server**. You can do this with the **revalidatePath** function from Next.js.
+    - redirect helps to redirect to the path we mentioned
