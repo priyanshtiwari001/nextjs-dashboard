@@ -174,3 +174,27 @@
       - reset: This is a function to reset the error boundary. When executed, the function will try to re-render the route segment.
   - notFound.tsx
     - While error.tsx is useful for catching all errors, notFound can be used when you try to fetch a resource that doesn't exist.
+
+# Chapter - 15 Adding Authentication
+
+- Authentication is a key part of many web applications today. It's how a system checks if the user is who they say they are.
+- A secure website often uses multiple ways to check a user's identity. For instance, after entering your username and password, the site may send a verification code to your device or use an external app like Google Authenticator. This 2-factor authentication (2FA) helps increase security. Even if someone learns your password, they can't access your account without your unique token.
+
+- Difference Between Authentication and Authorization
+
+  - Authentication is about making sure the user is who they say they are. You're proving your identity with something you have like a username and password.
+  - Authorization is the next step. Once a user's identity is confirmed, authorization decides what parts of the application they are allowed to use.
+  - Authenication checks what is your idenitiy and authorization is next step after authorization, it checks what access due to have.
+
+- NextAuth.js
+  - NextAuth.js abstracts away much of the complexity involved in managing sessions, sign-in and sign-out, and other aspects of authentication. While you can manually implement these features, the process can be time-consuming and error-prone. NextAuth.js simplifies the process, providing a unified solution for auth in Next.js applications.
+    - to install next-auth -
+      ```
+      npm i next-auth@beta
+      ```
+    - to get your access token of next-auth-
+      ```
+      openssl rand -base64 32
+      ```
+- Password hashing
+  - It's good practice to hash passwords before storing them in a database. Hashing converts a password into a fixed-length string of characters, which appears random, providing a layer of security even if the user's data is exposed
