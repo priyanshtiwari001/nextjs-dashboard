@@ -198,3 +198,68 @@
       ```
 - Password hashing
   - It's good practice to hash passwords before storing them in a database. Hashing converts a password into a fixed-length string of characters, which appears random, providing a layer of security even if the user's data is exposed
+
+## Chapter-16 Metadata
+
+- What is metadata?
+
+  - Metadata is crucial for SEO and shareability. In web development, metadata provides additional details about a webpage.
+  - Metadata is not visible to the users visiting the page. Instead, it works behind the scenes, embedded within the page's HTML, usually within the <head> element.
+  - This hidden information is crucial for search engines and other systems that need to understand your webpage's content better.
+
+- Why Metadata is important?
+
+  - Metadata plays a significant role in enhancing a webpage's SEO, making it more accessible and understandable for search engines and social media platforms.
+  - Proper metadata helps search engines effectively index webpages, improving their ranking in search results.
+  - Additionally, metadata like Open Graph improves the appearance of shared links on social media, making the content more appealing and informative for users.
+
+- Types of metadata:
+
+  - Title metadata:- Responsible for the title of a webpage that is displayed on the browser tab. It's crucial for SEO as it helps search engines understand what the webpage is about.
+
+  ```
+  <title>Page Title</title>
+  ```
+
+  - Description Metadata: This metadata provides a brief overview of the webpage content and is often displayed in search engine results.
+
+  ```
+  <meta name="description" content="A brief description of the page content." />
+  ```
+
+  - Keyword Metadata: This metadata includes the keywords related to the webpage content, helping search engines index the page.
+
+  ```
+  <meta name="keywords" content="keyword1, keyword2, keyword3" />
+  ```
+
+  - Open graph metadata: This metadata enhances the way a webpage is represented when shared on social media platforms, providing information such as the title, description, and preview image.
+
+  ```
+  <meta property="og:title" content="Title Here" />
+  <meta property="og:description" content="Description Here" />
+  <meta property="og:image" content="image_url_here" />
+  ```
+
+  - Favicon metadata:- This metadata links the favicon (a small icon) to the webpage, displayed in the browser's address bar or tab.
+
+  ```
+  <link rel="icon" href="path/to/favicon.ico" />
+  ```
+
+- Adding Metadata in Nextjs
+
+  - Next.js has a Metadata API that can be used to define your application metadata.
+  - There are two ways you can add metadata to your application:
+
+    - Config-based: Export a static metadata object or a dynamic generateMetadata function in a layout.js or page.js file.
+
+    - File-based: Next.js has a range of special files that are specifically used for metadata purposes:
+      - favicon.ico, apple-icon.jpg, and icon.jpg: Utilized for favicons and icons
+      - opengraph-image.jpg and twitter-image.jpg: Employed for social media images
+      - robots.txt: Provides instructions for search engine crawling
+      - sitemap.xml: Offers information about the website's structure
+
+    You have the flexibility to use these files for static metadata, or you can generate them programmatically within your project.
+
+  With both these options, Next.js will automatically generate the relevant <head> elements for your pages.
